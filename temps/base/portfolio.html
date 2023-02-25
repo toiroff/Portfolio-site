@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <!-- Breadcrumb Begin -->
+    <div class="breadcrumb-option spad set-bg" data-setbg="{% static 'img/breadcrumb-bg.jpg' %}">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="breadcrumb__text">
+                        <h2>Portfolio</h2>
+                        <div class="breadcrumb__links">
+                            <a href="{% url 'home' %}">Home</a>
+                            <span>Portfolio</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Breadcrumb End -->
+
+    <!-- Portfolio Section Begin -->
+
+    <section class="portfolio spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+
+                    <ul class="portfolio__filter">
+
+                        <li class="active" data-filter="*">All</li>
+                        {% for i in topic %}
+                        <li data-filter=".{{i.name}}">{{i.name}}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+
+            <div class="row portfolio__gallery">
+                {% for i in portfolio %}
+                <div class="col-lg-4 col-md-6 col-sm-6 mix {{i.topic}}">
+                    <div class="portfolio__item">
+                        <div class="portfolio__item__video set-bg" data-setbg="{{i.photo.url}}">
+                            <a href="{{i.video_url}}" class="play-btn video-popup"><i
+                                    class="fa fa-play"></i></a>
+                        </div>
+                        <div class="portfolio__item__text">
+                            <a href="{{ i.url }}"><h4>{{i.name}}</h4></a>
+                            <ul>
+                                <li>{{i.body}}</li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+
+
+        </div>
+    </section>
+
+    <!-- Portfolio Section End -->
+
+{% endblock content %}

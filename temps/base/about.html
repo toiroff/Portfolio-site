@@ -1,0 +1,243 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <!-- Breadcrumb Begin -->
+    <div class="breadcrumb-option spad set-bg" data-setbg="{% static 'img/breadcrumb-bg.jpg' %}">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="breadcrumb__text">
+                        <h2>About us</h2>
+                        <div class="breadcrumb__links">
+                            <a href="{% url 'home' %}">Home</a>
+                            <span>About</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Breadcrumb End -->
+
+    <!-- About Section Begin -->
+    <section class="about spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="about__pic">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <div class="about__pic__item about__pic__item--large set-bg"
+                                    data-setbg="{% static 'img/about/about-7.jpg' %}"></div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="about__pic__item set-bg" data-setbg="{% static 'img/about/about-4.jpg' %}"></div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="about__pic__item set-bg" data-setbg="{% static 'img/about/about-6.jpg' %}"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="about__text">
+                        <div class="section-title">
+                            <span>About UmarDev</span>
+                            <h2>Who I am?</h2>
+                        </div>
+                        <div class="row">
+                            {% for i in service %}
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <div class="services__item">
+                                    <div class="services__item__icon">
+                                        <img src="{{ i.icon.url }}" alt="">
+                                    </div>
+                                    <h4>{{ i.name }}</h4>
+                                    <p>{{ i.body }}</p>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                        <div class="about__text__desc">
+                            <p>Hey, I'm Muhammad Umar. I am a Python, Back-end, Telegram bot developer.
+
+I enjoy working on new things and am constantly learning and developing myself as an expert 👨‍💻.
+
+My guiding principles for every project are simple -- if it's fun, I'm all for it! Especially if this project has a real impact and changes the lives of many people 🙌.
+
+Also, I love making people's lives easier by automating routine processes and making things more efficient and faster 🤖.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- About Section End -->
+
+    <!-- Testimonial Section Begin -->
+    <section class="testimonial spad set-bg" data-setbg="{% static 'img/header.png' %}">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title center-title">
+                        <span>Loved By Clients</span>
+                        <h2>What clients say?</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+
+                <div class="testimonial__slider owl-carousel">
+                    {% for i in client %}
+                    <div class="col-lg-4">
+
+                        <div class="testimonial__item">
+                            <div class="testimonial__text">
+                                <p>{{i.body}}</p>
+                            </div>
+                            <div class="testimonial__author">
+                                <div class="testimonial__author__pic">
+                                    <img src="{{ i.image.url }}" alt="">
+                                </div>
+                                <div class="testimonial__author__text">
+                                    <h5>{{ i.name}}</h5>
+                                    <span>{{ i.Job }}</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    {% endfor %}
+<!--                    <div class="col-lg-4">-->
+<!--                        <div class="testimonial__item">-->
+<!--                            <div class="testimonial__text">-->
+<!--                                <p>Videographer delivers such a great service that it can benefit all kinds of people-->
+<!--                                    from any number.</p>-->
+<!--                            </div>-->
+<!--                            <div class="testimonial__author">-->
+<!--                                <div class="testimonial__author__pic">-->
+<!--                                    <img src="{% static 'img/testimonial/ta-2.jpg' %}" alt="">-->
+<!--                                </div>-->
+<!--                                <div class="testimonial__author__text">-->
+<!--                                    <h5>Krista Attorn</h5>-->
+<!--                                    <span>Web Designer</span>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="col-lg-4">-->
+<!--                        <div class="testimonial__item">-->
+<!--                            <div class="testimonial__text">-->
+<!--                                <p>Videographer delivers such a great service that it can benefit all kinds of people-->
+<!--                                    from any number.</p>-->
+<!--                            </div>-->
+<!--                            <div class="testimonial__author">-->
+<!--                                <div class="testimonial__author__pic">-->
+<!--                                    <img src="{% static 'img/testimonial/ta-3.jpg' %}" alt="">-->
+<!--                                </div>-->
+<!--                                <div class="testimonial__author__text">-->
+<!--                                    <h5>Krista Attorn</h5>-->
+<!--                                    <span>Web Designer</span>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="col-lg-4">-->
+<!--                        <div class="testimonial__item">-->
+<!--                            <div class="testimonial__text">-->
+<!--                                <p>Delivers such a great service that it can benefit all kinds of people from any number-->
+<!--                                    of industries.</p>-->
+<!--                            </div>-->
+<!--                            <div class="testimonial__author">-->
+<!--                                <div class="testimonial__author__pic">-->
+<!--                                    <img src="{% static 'img/testimonial/ta-1.jpg' %}" alt="">-->
+<!--                                </div>-->
+<!--                                <div class="testimonial__author__text">-->
+<!--                                    <h5>Krista Attorn</h5>-->
+<!--                                    <span>Web Designer</span>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="col-lg-4">-->
+<!--                        <div class="testimonial__item">-->
+<!--                            <div class="testimonial__text">-->
+<!--                                <p>Videographer delivers such a great service that it can benefit all kinds of people-->
+<!--                                    from any number.</p>-->
+<!--                            </div>-->
+<!--                            <div class="testimonial__author">-->
+<!--                                <div class="testimonial__author__pic">-->
+<!--                                    <img src="{% static 'img/testimonial/ta-2.jpg' %}" alt="">-->
+<!--                                </div>-->
+<!--                                <div class="testimonial__author__text">-->
+<!--                                    <h5>Krista Attorn</h5>-->
+<!--                                    <span>Web Designer</span>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Testimonial Section End -->
+
+    <!-- Counter Section Begin -->
+    <section class="counter">
+        <div class="container">
+            <div class="counter__content">
+                <div class="row">
+                    {% for i in projects %}
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="counter__item">
+                            <div class="counter__item__text">
+                                <img src="{% static 'img/icons/ci-1.png' %}" alt="">
+                                <h2 class="counter_num">{{i.compled}}</h2>
+                                <p>Compled Projects</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="counter__item second__item">
+                            <div class="counter__item__text">
+                                <img src="{% static 'img/icons/ci-2.png' %}" alt="">
+                                <h2 class="counter_num">{{i.happy}}</h2>
+                                <p>Happy clients</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="counter__item third__item">
+                            <div class="counter__item__text">
+                                <img src="{% static 'img/icons/ci-3.png' %}" alt="">
+                                <h2 class="counter_num">{{i.perspective}}</h2>
+                                <p>Perspective clients</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="counter__item four__item">
+                            <div class="counter__item__text">
+                                <img src="{% static 'img/icons/ci-4.pn0' %}g" alt="">
+                                <h2 class="counter_num">{{i.compled}}</h2>
+                                <p>Compled Projects</p>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Counter Section End -->
+
+    <!-- Team Section Begin -->
+        {% include 'team_component.html' %}
+    <!-- Team Section End -->
+
+{% endblock content %}

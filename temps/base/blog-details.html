@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <!-- Blog Details Hero Begin -->
+    <section class="blog-hero spad set-bg" data-setbg="{% static 'img/about-d.jpg' %}">
+        <div class="container">
+            <div class="row d-flex justify-content-center">
+                <div class="col-lg-8">
+                    <div class="blog__hero__text">
+                        <h2>{{blog.name}}</h2>
+                        <ul>
+                            <li>by <span>UmarDev</span></li>
+                            <li>{{ blog.created|timesince }} ago</li>
+                            <li>{{comments.count}} Comment</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Blog Details Hero End -->
+
+    <!-- Blog Details Section Begin -->
+    <div class="blog-details spad">
+        <div class="container">
+            <div class="row d-flex justify-content-center">
+                <div class="col-lg-8">
+                    <div class="blog__details__content">
+
+                        <div class="blog__details__text">
+                            <img src="{{ blog.image.url }}" alt="" height="600" width="1000">
+                        </div>
+                        <div class="blog__details__name">
+                            <h6>{{blog.name}}</h6>
+                        </div>
+                        <div class="blog__details__quote">
+                            <p>{{ blog.description}}</p>
+                            <h6>Umar Dev</h6>
+
+
+                            <i class="fa fa-quote-right"></i>
+                        </div>
+<!--                        <div class="blog__details__desc">-->
+<!--                            <p>{{ blog.description }}</p>-->
+
+<!--                        </div>-->
+                        <div class="blog__details__tags">
+                            <span><i class="fa fa-tag"></i> Tag:</span>
+                            <a>{{blog.tags}}</a>
+
+
+                        </div>
+
+                        <div class="blog__details__recent">
+                            <h4>Recent Posts</h4>
+                            <div class="row">
+                                {% for i in blogs %}
+                                <div class="col-lg-4 col-md-6 col-sm-6">
+                                    <div class="blog__details__recent__item">
+
+                                        <img src="{{ i.image.url }}" alt="">
+                                        <a href="{% url 'blog-details' i.id %}"><h5> {{ i.name }}</h5></a>
+                                        <span>{{i.created|timesince}} ago</span>
+                                    </div>
+                                </div>
+                                {%endfor %}
+
+                            </div>
+                        </div>
+                        <div class="blog__details__comment">
+                            <h4>Leave a comment</h4>
+                            <form action="" method="post">
+                                {% csrf_token %}
+                                <div class="input__list">
+                                    <input name="name" type="text" placeholder="Name">
+                                </div>
+                                <textarea name="comment" placeholder="Comment"></textarea>
+                                <button type="submit" class="site-btn">Send Message</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Blog Details Section End -->
+
+{% endblock content %}

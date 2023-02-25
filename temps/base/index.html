@@ -1,0 +1,247 @@
+
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+<!-- Hero Section Begin -->
+    <section class="hero">
+    <div class="hero__slider owl-carousel">
+        <div class="hero__item set-bg" data-setbg="{% static 'img/hero/portfolio.jpg' %}">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="hero__text">
+                            <span>Backend Developer</span>
+                            <h2>UmarDev’s Portfolio</h2>
+                            <a href="{% url 'about' %}" class="primary-btn">See more about me</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hero__item set-bg" data-setbg="{% static 'img/hero/portfolio.jpg' %}">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="hero__text">
+                            <span>Python Developer</span>
+                            <h2>UmarDev’s Portfolio</h2>
+                            <a href="{% url 'about' %}" class="primary-btn">See more about me</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hero__item set-bg" data-setbg="{% static 'img/hero/portfolio.jpg' %}">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="hero__text">
+                            <span>Telegram Bot Developer</span>
+                            <h2>UmarDev’s Portfolio</h2>
+                            <a href="{% url 'about' %}" class="primary-btn">See more about me</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Services Section Begin -->
+<section class="services spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="services__title">
+                    <div class="section-title">
+                        <span>Our services</span>
+                        <h2>What We do?</h2>
+                    </div>
+                    <p>If you hire a developer from our team, you will receive a professional project to create a special website or Telegram bot for your business and upon completion of the project.
+                    </p>
+                    <a href="{% url 'services' %}" class="primary-btn">View all services</a>
+                </div>
+            </div>
+            <div class="col-lg-8">
+                <div class="row">
+                    {% for i in service %}
+                    <div class="col-lg-6 col-md-6 col-sm-6">
+                        <div class="services__item">
+                            <div class="services__item__icon">
+
+                                <img src="{{ i.icon.url }}" alt="">
+                            </div>
+                            <h4>{{ i.name}}</h4>
+                            <p>{{ i.body }}</p>
+                        </div>
+                    </div>
+                {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Services Section End -->
+
+<!--&lt;!&ndash; Work Section Begin &ndash;&gt;-->
+<!--<section class="work">-->
+<!--    <div class="work__gallery">-->
+<!--        <div class="grid-sizer"></div>-->
+<!--        <div class="work__item wide__item set-bg" data-setbg="{% static 'img/work/work-1.jpg' %}">-->
+<!--            <a href="https://www.youtube.com/watch?v=LXb3EKWsInQ" class="play-btn video-popup"><i-->
+<!--                    class="fa fa-play"></i></a>-->
+<!--            <div class="work__item__hover">-->
+<!--                <h4>VIP Auto Tires & Service</h4>-->
+<!--                <ul>-->
+<!--                    <li>eCommerce</li>-->
+<!--                    <li>Magento</li>-->
+<!--                </ul>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="work__item small__item set-bg" data-setbg="{% static 'img/work/work-2.jpg' %}">-->
+<!--            <a href="https://www.youtube.com/watch?v=LXb3EKWsInQ" class="play-btn video-popup"><i-->
+<!--                    class="fa fa-play"></i></a>-->
+<!--        </div>-->
+<!--        <div class="work__item small__item set-bg" data-setbg="{% static 'img/work/work-3.jpg' %}">-->
+<!--            <a href="https://www.youtube.com/watch?v=LXb3EKWsInQ" class="play-btn video-popup"><i-->
+<!--                    class="fa fa-play"></i></a>-->
+<!--        </div>-->
+<!--        <div class="work__item large__item set-bg" data-setbg="{% static 'img/work/work-4.jpg' %}">-->
+<!--            <a href="https://www.youtube.com/watch?v=LXb3EKWsInQ" class="play-btn video-popup"><i-->
+<!--                    class="fa fa-play"></i></a>-->
+<!--            <div class="work__item__hover">-->
+<!--                <h4>VIP Auto Tires & Service</h4>-->
+<!--                <ul>-->
+<!--                    <li>eCommerce</li>-->
+<!--                    <li>Magento</li>-->
+<!--                </ul>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="work__item small__item set-bg" data-setbg="{% static 'img/work/work-5.jpg' %}">-->
+<!--            <a href="https://www.youtube.com/watch?v=LXb3EKWsInQ" class="play-btn video-popup"><i-->
+<!--                    class="fa fa-play"></i></a>-->
+<!--        </div>-->
+<!--        <div class="work__item small__item set-bg" data-setbg="{% static 'img/work/work-6.jpg' %}">-->
+<!--            <a href="https://www.youtube.com/watch?v=LXb3EKWsInQ" class="play-btn video-popup"><i-->
+<!--                    class="fa fa-play"></i></a>-->
+<!--        </div>-->
+<!--        <div class="work__item wide__item set-bg" data-setbg="{% static 'img/work/work-7.jpg' %}">-->
+<!--            <a href="https://www.youtube.com/watch?v=LXb3EKWsInQ" class="play-btn video-popup"><i-->
+<!--                    class="fa fa-play"></i></a>-->
+<!--            <div class="work__item__hover">-->
+<!--                <h4>VIP Auto Tires & Service</h4>-->
+<!--                <ul>-->
+<!--                    <li>eCommerce</li>-->
+<!--                    <li>Magento</li>-->
+<!--                </ul>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</section>-->
+<!--&lt;!&ndash; Work Section End &ndash;&gt;-->
+
+<!-- Counter Section Begin -->
+    <section class="counter">
+        <div class="container">
+            <div class="counter__content">
+                <div class="row">
+                    {% for i in projects %}
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="counter__item">
+                            <div class="counter__item__text">
+                                <img src="{% static 'img/icons/ci-1.png' %}" alt="">
+                                <h2 class="counter_num">{{i.compled}}</h2>
+                                <p>Compled Projects</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="counter__item second__item">
+                            <div class="counter__item__text">
+                                <img src="{% static 'img/icons/ci-2.png' %}" alt="">
+                                <h2 class="counter_num">{{i.happy}}</h2>
+                                <p>Happy clients</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="counter__item third__item">
+                            <div class="counter__item__text">
+                                <img src="{% static 'img/icons/ci-3.png' %}" alt="">
+                                <h2 class="counter_num">{{i.perspective}}</h2>
+                                <p>Perspective clients</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="counter__item four__item">
+                            <div class="counter__item__text">
+                                <img src="{% static 'img/icons/ci-4.pn0' %}g" alt="">
+                                <h2 class="counter_num">{{i.compled}}</h2>
+                                <p>Compled Projects</p>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+<!-- Counter Section End -->
+
+<!-- Team Section Begin -->
+        {% include 'team_component.html' %}
+<!-- Team Section End -->
+
+<!-- Latest Blog Section Begin -->
+<section class="latest spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-title center-title">
+                    <span>Our Blog</span>
+                    <h2>Blog Update</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="latest__slider owl-carousel">
+                {% for i in blogs %}
+                <div class="col-lg-4">
+                    <div class="blog__item latest__item">
+                        <h4>{{ i.name }}</h4>
+                        <ul>
+                            <li>{{i.created|timesince}} ago</li>
+
+                        </ul>
+                        <p>{{ i.description}}[0:50]<a href="{% url 'blog-details' i.id %}">...</a></p>
+                        <a href="{% url 'blog-details' i.id %}">Read more <span class="arrow_right"></span></a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Latest Blog Section End -->
+
+<!-- Call To Action Section Begin -->
+<section class="callto spad set-bg" data-setbg="{% static 'img/home.webp' %}">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="callto__text">
+                    <h2>New Projects, Developer who gives wings to your projects</h2>
+                    <p>Best places to work 2019</p>
+                    <a href="{% url 'contact' %}">Start your project</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Call To Action Section End -->
+{% endblock content %}
+
